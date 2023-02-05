@@ -210,7 +210,7 @@ pub enum Type {
     Bytes(u8),
     Rational,
     DynamicBytes,
-    Mapping(Loc, Box<Expression>, Box<Expression>),
+    Mapping(Loc, Box<Expression>, Option<Identifier>, Box<Expression>),
     Function {
         params: Vec<(Loc, Option<Parameter>)>,
         attributes: Vec<FunctionAttribute>,

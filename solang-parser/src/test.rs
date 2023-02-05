@@ -1138,6 +1138,19 @@ contract C {
 }
 
 #[test]
+fn parse_mapping_with_named_key() {
+    let src = r#"
+contract C {
+    mapping(address user => uint256) public balances;
+    mapping(address => mapping(address spender => uint256)) public allowance;
+}
+    "#;
+    let (actual_parse_tree, _) = crate::parse(src, 0).unwrap();
+    assert_eq!(actual_parse_tree.0.len(), 1);
+
+}
+
+#[test]
 fn parse_random_doccomment() {
     let src = r#"
 int  /** x */ constant /** x */ y/** dev:  */ = /** x */1 /** x */ + /** x */2/** x */;
