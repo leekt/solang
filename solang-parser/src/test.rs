@@ -1138,7 +1138,7 @@ contract C {
 }
 
 #[test]
-fn parse_mapping_with_named_key() {
+fn parse_mapping_with_named_parameter() {
     let src = r#"
 contract C {
     mapping(address user => uint256) public balances;
